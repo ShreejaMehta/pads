@@ -2,7 +2,7 @@ import click
 from pathlib import Path
 import ffmpeg
 from models.interface import runner
-
+from pick import pick
 
 @click.command()
 @click.argument("filepath")
@@ -34,8 +34,9 @@ def main(filepath: str):
     result = runner(Path(f"./{output_filename}"))
 
     # TODO: Add tui
-    print(result)
-
+    title = "Select the closest matching query: -"
+    option, index = pick(result, title)
+    print("You chose:\n" + option)
 
 if __name__ == '__main__':
     main()
