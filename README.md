@@ -12,7 +12,7 @@ The program produces three outputs based on different models from which the user
 # Running the program
 
 To run the program, type the following command: -
- ** python main.py ./res/sampleaudio.wav **
+ **python main.py ./res/sampleaudio.wav**
  
  
  
