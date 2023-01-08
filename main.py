@@ -3,6 +3,7 @@ from pathlib import Path
 import ffmpeg
 from models.interface import runner
 from pick import pick
+import os
 
 @click.command()
 @click.argument("filepath")
@@ -33,10 +34,12 @@ def main(filepath: str):
     # Spinning threads!
     result = runner(Path(f"./{output_filename}"))
 
-    # TODO: Add tui
     title = "Select the closest matching query: -"
     option, index = pick(result, title)
-    print("You chose:\n" + option)
+    print(option)
+
+    # Remove the temporary file
+    os.remove(output_filename)
 
 if __name__ == '__main__':
     main()

@@ -8,6 +8,7 @@ whisper = {editable = true, git = "https://github.com/openai/whisper.git"}
 click = "*"
 python-magic = "*"
 ffmpeg-python = "*"
+pick = "*"
 
 [dev-packages]
 
