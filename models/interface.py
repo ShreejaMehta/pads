@@ -7,26 +7,20 @@ import whisper as wh
 from transformers import *
 import torch
 import soundfile as sf
-import os
 import torchaudio
 
 
 def whisper_model(filepath: Path) -> str:
-    os.system('cls' if os.name == 'nt' else 'clear')
     model = wh.load_model("base.en")
-    os.system('cls' if os.name == 'nt' else 'clear')
     return model.transcribe(str(filepath)).get("text")
 
 def sphinx_model(filepath: Path) -> str:
-    os.system('cls' if os.name == 'nt' else 'clear')
     r = sr.Recognizer()
     with sr.AudioFile(str(filepath)) as source:
         audio = r.record(source)
-    os.system('cls' if os.name == 'nt' else 'clear')
     return r.recognize_sphinx(audio)
 
 def wave2vec2_model(filepath: Path) -> str:
-    os.system('cls' if os.name == 'nt' else 'clear')
     model_name = "facebook/wav2vec2-base-960h"
     processor = Wav2Vec2Processor.from_pretrained(model_name)
     model = Wav2Vec2ForCTC.from_pretrained(model_name)
@@ -39,7 +33,6 @@ def wave2vec2_model(filepath: Path) -> str:
     logits = model(input_values)["logits"]
     predicted_ids = torch.argmax(logits, dim=-1)
     transcription = processor.decode(predicted_ids[0])
-    os.system('cls' if os.name == 'nt' else 'clear')
     return transcription.lower()
 
 def runner(filepath: Path) -> str:
