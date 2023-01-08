@@ -40,6 +40,5 @@ def main(filepath: str):
 
     # Remove the temporary file
     os.remove(output_filename)
-
 if __name__ == '__main__':
     main()
