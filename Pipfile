@@ -9,6 +9,12 @@ click = "*"
 python-magic = "*"
 ffmpeg-python = "*"
 pick = "*"
+speechrecognition = "*"
+soundfile = "*"
+torchaudio = "*"
+torch = "*"
+transformers = "*"
+pocketsphinx = "*"
 
 [dev-packages]
 

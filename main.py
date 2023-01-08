@@ -36,10 +36,10 @@ def main(filepath: str):
 
     title = "Select the closest matching query: -"
     option, index = pick(result, title)
+    print(chr(27) + "[2J") # Clear terminal
     print(option)
 
     # Remove the temporary file
     os.remove(output_filename)
-
 if __name__ == '__main__':
     main()
