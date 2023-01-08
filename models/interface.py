@@ -13,7 +13,7 @@ import torchaudio
 
 def whisper_model(filepath: Path) -> str:
     os.system('cls' if os.name == 'nt' else 'clear')
-    model = wh.load_model("large")
+    model = wh.load_model("base.en")
     os.system('cls' if os.name == 'nt' else 'clear')
     return model.transcribe(str(filepath)).get("text")
 
